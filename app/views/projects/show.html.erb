@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="panel">
+    <div class="col-md-4">
+      <div class="panel-heading">
+        <h1><%= @project.name %></h1>
+        <p class="text-muted"><%= @project.description %></p>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#newTask">Add A New Task</button>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <!-- this is where data analysis would go -->
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'email_form'%>
+  <div class="col-md-3">
+    <%= render 'tasks/backlog'%>
+  </div>
+  <div class="col-md-3">
+    <%= render 'tasks/in_progress'%>
+  </div>
+  <div class="col-md-3">
+    <%= render 'tasks/completed'%>
+  </div>
+</div>
+
+
+<div class="modal fade" id="newTask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h2 class="modal-title" id="myModalLabel">Add a New Task</h2>
+      </div>
+        <%= form_for @task do |f| %>
+          <div class="modal-body">
+            <%= f.label "Title" %>
+            <%= f.text_field :title, class: "form-control" %>
+            <%= f.label "Description" %>
+            <%= f.text_area :description, class: "form-control" %>
+            <%= f.hidden_field :project_id, value: @project.id %>
+            <%= f.label "Status" %>
+            <%= f.select :status, [['Backlog', 1], ['In Progress', 2], ['Completed', 3]] %>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit "Submit", class: "btn btn-info btn-lg" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

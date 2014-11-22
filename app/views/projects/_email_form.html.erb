@@ -1,0 +1,26 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <h3>Invite Collaborators</h3>
+    </a>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div class="panel-body">
+      <%= form_for @invite, :html => {:class => "form-horizontal col-md-12"} do |f| %>
+        <div class="form-group">
+          <%= f.label "Email" %>
+          <%= f.text_area   :to , :class => 'form-control', :placeholder => "collaborators@example.com" %>
+        </div>
+      <%= f.hidden_field :project, value: @project.id %>
+        <div class="form-group">
+          <%= f.label "Subject" %>
+          <%= f.text_field  :subject , :class => 'form-control', :placeholder => "Invitation to collaborate" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit  "Send Email" , :class => 'btn btn-info btn-block' %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,32 @@
+    <div class="panel">
+      <h3>In Progress<span class="badge pull-right"><%= @in_progress.count %></span></h3>
+    </div>
+    <div class="scroll">
+    <% @in_progress.each do |task| %>
+      <div class="thumbnail">
+        <div class="caption">
+          <%=link_to "", task_path(task), method: 'delete', class: "glyphicon glyphicon-remove pull-right" %>
+          <div class="panel">
+            <h4><%= task.title %></h4>
+          </div>
+          <p class="muted-text"><%= task.description %></p>
+          <%= link_to "Edit", task_path(task), "data-toggle" => "modal", "data-target" => "#editTask#{task.id}" %>
+          <div class="modal fade" id="editTask<%= task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h2 class="modal-title" id="myModalLabel">Edit Task</h2>
+              </div>
+              <div class="modal-body">
+                <%= render 'tasks/form', task: task %>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    </div>

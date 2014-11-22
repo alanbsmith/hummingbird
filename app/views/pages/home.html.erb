@@ -1,0 +1,11 @@
+<div class="panel">
+  <div class="panel-heading text-center">
+    <h1>Welcome to Hummingbird</h1>
+    <h4 class="text-muted">A lightweight tool for workflow management.</h4>
+    <% if current_user %>
+      <%= link_to "Start A New Project!", new_project_path, class: "btn btn-lg btn-info" %>
+    <% else %>
+      <%= link_to "Sign in with Github", 'auth/github', class: "btn btn-lg btn-warning" %>
+    <% end %>
+  </div>
+</div>

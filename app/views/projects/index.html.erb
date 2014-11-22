@@ -1,0 +1,22 @@
+
+<div class="panel">
+  <div class="panel-heading">
+    <h1>Your Projects</h1>
+    <%= link_to "Start a New Project", new_project_path, class: "btn btn-info" %>
+  </div>
+</div>
+<div class="row">
+  <% @projects.each do |project| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <div class="caption">
+          <div class="panel">
+            <%=link_to "", project_path(project), method: 'delete', class: "glyphicon glyphicon-remove pull-right" %>
+            <h3><%= link_to "#{project.name}", project_path(project) %></h3>
+          </div>
+          <p class="text-muted"><%= project.description %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
