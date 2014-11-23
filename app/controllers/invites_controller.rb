@@ -1,7 +1,7 @@
 class InvitesController < ApplicationController
   def create
     @invite = Invite.new(safe_params)
-    Invitation.invite(@invite.trip,
+    Invitation.invite(@invite.project, #invite may not have a project field
                       @invite.user = current_user,
                       @invite.to,
                       @invite.subject,
@@ -14,14 +14,12 @@ class InvitesController < ApplicationController
   private
 
   def safe_params
-    new_params        = params.require(:invite).permit(:project, 
-                                                       :user, 
-                                                       :to, 
-                                                       :from, 
-                                                       :subject, 
-                                                       :body)
+    params.require(:invite).permit(:project,
+                                   :user, 
+                                   :to, 
+                                   :from, 
+                                   :subject, 
+                                   :body)
     
-    new_params[:project] = Project.find(params[:invite][:project])
-    new_params
   end
 end

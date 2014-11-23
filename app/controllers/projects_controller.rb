@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.where(owner_id: current_user.id)
+    @projects = Project.all
   end
 
   def show
@@ -19,7 +19,6 @@ class ProjectsController < ApplicationController
 
   def create
     project = Project.new(project_params)
-    project.owner_id = current_user.id
     
     if project.save
 
