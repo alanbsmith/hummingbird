@@ -7,8 +7,8 @@
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#newTask">Add A New Task</button>
       </div>
     </div>
-    <div class="col-md-3">
-  
+    <div class="col-md-4">
+      <%= pie_chart @tasks.group(:status).count %>
     </div>
   </div>
 </div>
