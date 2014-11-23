@@ -15,6 +15,7 @@ gem 'omniauth-github'
 gem 'chartkick'
 gem 'groupdate'
 gem 'figaro'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
