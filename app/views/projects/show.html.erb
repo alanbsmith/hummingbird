@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <!-- this is where data analysis would go -->
+  
     </div>
   </div>
 </div>
@@ -43,7 +43,7 @@
             <%= f.text_area :description, class: "form-control" %>
             <%= f.hidden_field :project_id, value: @project.id %>
             <%= f.label "Status" %>
-            <%= f.select :status, [['Backlog', 1], ['In Progress', 2], ['Completed', 3]] %>
+            <%= f.select :status, [['Backlog', "Backlog"], ['In Progress', "In Progress"], ['Completed', "Completed"]] %>
           </div>
           <div class="modal-footer">
             <%= f.submit "Submit", class: "btn btn-info btn-lg" %>

@@ -30,7 +30,7 @@
     </div> -->
     <div class="field">
       <%= f.label "Status" %>
-      <%= f.select :status, [['Backlog', 1], ['In Progress', 2], ['Completed', 3]] %>
+      <%= f.select :status, [['Backlog', 'Backlog'], ['In Progress', 'In Progress'], ['Completed', 'Completed']] %>
     </div>
     <div class="actions">
       <%= f.submit "Submit", class: "btn btn-info"%>
