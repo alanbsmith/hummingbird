@@ -2,9 +2,8 @@
 <html>
 <head>
   <title>Hummingbird</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "http://code.highcharts.com/highcharts.js", "chartkick" %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -29,7 +28,7 @@
             <% if current_user %>
               <li><img class="img profile-image img-circle" style="width: 40px" src=<%= current_user.image %></img></li>
               <li><%= link_to "Welcome #{current_user.name}!", '#' %></li>
-              <li><%= link_to "Sign Out", signout_path %></li> 
+              <li><%= link_to "Sign Out", signout_path %></li>
             <% else %>
               <!-- <li><%= link_to "Sign in with Github", '/auth/github' %></li> -->
             <% end %>
@@ -41,6 +40,4 @@
     </div>
 </body>
 </html>
-
-
-
+<%= javascript_include_tag 'bundle' %>
